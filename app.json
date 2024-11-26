@@ -12,7 +12,7 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "bundleIdentifier": "com.gabadinha.ads",
+      "bundleIdentifier": "",
       "supportsTablet": true
     },
     "android": {
@@ -20,22 +20,22 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.gabadinha.ads"
+      "package": ""
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "3a8eb055-40a6-4a2c-9d0f-9e4a2201a597"
+        "projectId": ""
       }
     },
     "plugins": [
       [
         "react-native-google-mobile-ads",
         {
-          "androidAppId": "ca-app-pub-6770973915639479~4225124037",
-          "iosAppId": "ca-app-pub-6770973915639479~8018336297"
+          "androidAppId": "ca-app-pub-9999999999999~99999999",
+          "iosAppId": "ca-app-pub-99999999999~999999999"
         }
       ]
     ]
