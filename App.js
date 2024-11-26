@@ -3,8 +3,8 @@ import { StyleSheet, Text, View, Button  } from 'react-native';
 import { BannerAd, BannerAdSize, InterstitialAd, AdEventType, TestIds } from 'react-native-google-mobile-ads';
 
 // IDs de teste do AdMob (troque pelos seus IDs de produção)
-const adUnitIdBanner = __DEV__ ? TestIds.BANNER : 'ca-app-pub-6770973915639479/6623352393';
-const adUnitIdInterstitial = __DEV__ ? TestIds.INTERSTITIAL : 'ca-app-pub-3940256099942544/1033173712';
+const adUnitIdBanner = __DEV__ ? TestIds.BANNER : 'ca-app-pub-9999999999999/999999999';
+const adUnitIdInterstitial = __DEV__ ? TestIds.INTERSTITIAL : 'ca-app-pub-8888888888888/888888888';
 
 const interstitial = InterstitialAd.createForAdRequest(adUnitIdInterstitial, {
   requestNonPersonalizedAdsOnly: true,
