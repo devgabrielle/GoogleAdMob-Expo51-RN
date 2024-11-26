@@ -12,16 +12,32 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "bundleIdentifier": "com.gabadinha.ads",
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.gabadinha.ads"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3a8eb055-40a6-4a2c-9d0f-9e4a2201a597"
+      }
+    },
+    "plugins": [
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-6770973915639479~4225124037",
+          "iosAppId": "ca-app-pub-6770973915639479~8018336297"
+        }
+      ]
+    ]
   }
 }

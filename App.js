@@ -1,20 +1,56 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, View, Button  } from 'react-native';
+import { BannerAd, BannerAdSize, InterstitialAd, AdEventType, TestIds } from 'react-native-google-mobile-ads';
 
-export default function App() {
+// IDs de teste do AdMob (troque pelos seus IDs de produção)
+const adUnitIdBanner = __DEV__ ? TestIds.BANNER : 'ca-app-pub-6770973915639479/6623352393';
+const adUnitIdInterstitial = __DEV__ ? TestIds.INTERSTITIAL : 'ca-app-pub-3940256099942544/1033173712';
+
+const interstitial = InterstitialAd.createForAdRequest(adUnitIdInterstitial, {
+  requestNonPersonalizedAdsOnly: true,
+});
+
+
+
+const App = () => {
+  // Carregar o anúncio intersticial assim que o app iniciar
+  useEffect(() => {
+    const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+      console.log('Anúncio intersticial carregado');
+    });
+
+    interstitial.load();
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const showInterstitialAd = () => {
+    if (interstitial.isLoaded()) {
+      interstitial.show();
+    } else {
+      console.log('Anúncio intersticial não está pronto ainda');
+    }
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      {/* Anúncio de banner */}
+      <BannerAd
+        unitId={adUnitIdBanner}
+        size={BannerAdSize.MEDIUM_RECTANGLE}
+        requestOptions={{
+          requestNonPersonalizedAdsOnly: true,
+        }}
+      />
+
+      {/* Botão para exibir o anúncio intersticial */}
+      <Button title="Mostrar Anúncio Intersticial" onPress={showInterstitialAd} />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
+
